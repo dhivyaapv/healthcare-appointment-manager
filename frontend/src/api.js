@@ -1,10 +1,9 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: "https://healthcare-appointment-manager-u6f7.onrender.com",
 });
 
-// Attach JWT token to every request
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
