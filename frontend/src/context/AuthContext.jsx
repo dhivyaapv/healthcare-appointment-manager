@@ -1,16 +1,19 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   // Restore user session on initial page load safely
   useEffect(() => {
     try {
       const savedUser = localStorage.getItem("user");
       const token = localStorage.getItem("token");
+
       if (savedUser && token) {
         setUser(JSON.parse(savedUser));
       }
@@ -33,7 +36,9 @@ export function AuthProvider({ children }) {
     setUser(null);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    window.location.href = "/login";
+
+    // React Router navigation instead of full-page reload
+    navigate("/login");
   };
 
   return (
