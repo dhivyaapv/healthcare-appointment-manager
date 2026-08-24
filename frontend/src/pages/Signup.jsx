@@ -32,7 +32,9 @@ export default function Signup() {
     <PageWrapper>
       <TopBar>
         <TopBarInner>
-          <div>📞 Emergency Line: <strong>+1 (800) 555-CARE</strong></div>
+          <div>
+            📞 Emergency Line: <strong>+1 (800) 555-CARE</strong>
+          </div>
           <div>📍 Main Hospital & Virtual Consultations</div>
         </TopBarInner>
       </TopBar>
@@ -46,8 +48,11 @@ export default function Signup() {
               <span>Medical Systems</span>
             </BrandText>
           </Brand>
+
           <NavGroup>
-            <Link to="/login" className="nav-btn-secondary">Sign In</Link>
+            <Link to="/login" className="nav-btn-secondary">
+              Sign In
+            </Link>
           </NavGroup>
         </HeaderInner>
       </Header>
@@ -56,10 +61,12 @@ export default function Signup() {
         <HeroInner>
           <HeroContent>
             <Badge>New Registration</Badge>
+
             <h1>Join the Healthcare Network</h1>
+
             <p>
-              Create an account to book specialist appointments, track digital prescriptions, 
-              and manage your medical records online.
+              Create an account to book specialist appointments, track digital
+              prescriptions, and manage your medical records online.
             </p>
           </HeroContent>
 
@@ -105,9 +112,14 @@ export default function Signup() {
 
               <FormGroup>
                 <label>Account Role</label>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                >
                   <option value="patient">Patient Account</option>
-                  <option value="doctor">Medical Practitioner (Doctor)</option>
+                  <option value="doctor">
+                    Medical Practitioner (Doctor)
+                  </option>
                 </select>
               </FormGroup>
 
@@ -124,11 +136,14 @@ export default function Signup() {
                 </FormGroup>
               )}
 
-              <SubmitBtn type="submit">Complete Registration</SubmitBtn>
+              <SubmitBtn type="submit">
+                Complete Registration
+              </SubmitBtn>
             </form>
 
             <SwitchLink>
-              Already have an account? <Link to="/login">Sign In</Link>
+              Already have an account?{" "}
+              <Link to="/login">Sign In</Link>
             </SwitchLink>
           </AuthCard>
         </HeroInner>
@@ -140,17 +155,17 @@ export default function Signup() {
 const PageWrapper = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #070a12;
-  color: #f8fafc;
+  background-color: #f8fafc;
+  color: #1e293b;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 `;
 
 const TopBar = styled.div`
-  background: #0d121f;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
   padding: 8px 0;
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: #64748b;
 `;
 
 const TopBarInner = styled.div`
@@ -159,11 +174,16 @@ const TopBarInner = styled.div`
   padding: 0 24px;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 4px;
+  }
 `;
 
 const Header = styled.header`
-  background: rgba(11, 15, 25, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
   padding: 16px 0;
 `;
 
@@ -189,18 +209,35 @@ const LogoIcon = styled.span`
 const BrandText = styled.div`
   display: flex;
   flex-direction: column;
-  strong { font-size: 1.25rem; color: #ffffff; line-height: 1; }
-  span { font-size: 0.75rem; color: #3b82f6; text-transform: uppercase; margin-top: 2px; }
+
+  strong {
+    font-size: 1.25rem;
+    color: #1e293b;
+    line-height: 1;
+  }
+
+  span {
+    font-size: 0.75rem;
+    color: #2563eb;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
 `;
 
 const NavGroup = styled.nav`
   .nav-btn-secondary {
     padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.08);
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
     border-radius: 8px;
-    color: #ffffff;
+    color: #2563eb;
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: 600;
+
+    &:hover {
+      background: #dbeafe;
+    }
   }
 `;
 
@@ -216,36 +253,61 @@ const HeroInner = styled.div`
   grid-template-columns: 1fr 420px;
   gap: 48px;
   align-items: center;
-  @media (max-width: 900px) { grid-template-columns: 1fr; }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const HeroContent = styled.div`
-  h1 { font-size: 2.75rem; font-weight: 700; line-height: 1.2; margin: 16px 0; }
-  p { font-size: 1.1rem; color: #94a3b8; line-height: 1.6; }
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 16px 0;
+    color: #0f172a;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #64748b;
+    line-height: 1.6;
+  }
 `;
 
 const Badge = styled.span`
   display: inline-block;
   padding: 6px 14px;
-  background: rgba(59, 130, 246, 0.15);
-  color: #3b82f6;
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #dbeafe;
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
 `;
 
 const AuthCard = styled.div`
-  background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
   padding: 32px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 `;
 
 const CardHeader = styled.div`
   margin-bottom: 20px;
-  h3 { font-size: 1.4rem; margin: 0 0 6px 0; }
-  p { color: #94a3b8; font-size: 0.85rem; margin: 0; }
+
+  h3 {
+    font-size: 1.4rem;
+    margin: 0 0 6px 0;
+    color: #0f172a;
+  }
+
+  p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin: 0;
+  }
 `;
 
 const FormGroup = styled.div`
@@ -254,15 +316,35 @@ const FormGroup = styled.div`
   flex-direction: column;
   gap: 6px;
 
-  label { font-size: 0.75rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; }
-  input, select {
+  label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+  }
+
+  input,
+  select {
     padding: 12px 14px;
-    background: #070a12;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
     border-radius: 8px;
-    color: #ffffff;
+    color: #1e293b;
     font-size: 0.95rem;
-    &:focus { outline: none; border-color: #3b82f6; }
+
+    &:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &::placeholder {
+      color: #94a3b8;
+    }
+  }
+
+  select {
+    cursor: pointer;
   }
 `;
 
@@ -277,13 +359,25 @@ const SubmitBtn = styled.button`
   font-size: 0.95rem;
   cursor: pointer;
   margin-top: 8px;
-  &:hover { background: #2563eb; }
+
+  &:hover {
+    background: #2563eb;
+  }
 `;
 
 const SwitchLink = styled.p`
   text-align: center;
   margin-top: 20px;
   font-size: 0.85rem;
-  color: #94a3b8;
-  a { color: #3b82f6; text-decoration: none; font-weight: 600; }
+  color: #64748b;
+
+  a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
